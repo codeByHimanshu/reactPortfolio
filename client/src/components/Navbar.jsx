@@ -5,7 +5,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-blue-100 text-black text-xl font-light px-6 py-4 rounded-2xl shadow-lg mx-auto mt-6 w-11/12 md:w-3/5 animate__animated animate__fadeInDown">
+    <nav className="bg-blue-100 text-black flex justify-center text-3xl font-light px-8 py-8 rounded-3xl shadow-lg mx-auto mt-6 w-11/12 md:w-3/5 animate__animated animate__fadeInDown">
       <div className="flex justify-between items-center">
        
         <button 
