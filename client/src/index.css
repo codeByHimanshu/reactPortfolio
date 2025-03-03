@@ -1,2 +1,5 @@
 @import "tailwindcss";
 @import 'animate.css';
+body{
+    background-color: #111827; 
+}
