@@ -10,7 +10,7 @@ function Navbar() {
       setIsScrolled(window.scrollY > 50);
     };
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    return ("scroll", handleScroll);
   }, []);
 
   return (
