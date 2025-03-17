@@ -58,7 +58,7 @@ function Home() {
     <div className="flex items-center justify-center min-h-screen bg-gray-900 text-center px-6 pt-20">
       <div className="max-w-2xl bg-gray-800 p-10 rounded-2xl shadow-xl animate-fadeInUp">
         <h1 className="text-6xl font-extrabold text-white mb-4">
-          Hey! I'm <span className="text-orange-500">Himanshu Singh</span>
+          Hey! I'm <span className="text-orange-500">Himanshu</span>
         </h1>
         <p className="text-xl text-gray-300">
           A passionate <span className="text-orange-400 font-semibold">Full-Stack Developer</span>
