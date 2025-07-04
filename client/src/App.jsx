@@ -1,143 +1,180 @@
-import { useState, useEffect } from "react";
-import { FiMenu, FiX } from "react-icons/fi";
+import React from "react";
+import { motion } from "framer-motion";
+import { FaGithub, FaLinkedin, FaEnvelope, FaLaptopCode, FaUniversity } from "react-icons/fa";
+import { SiMongodb, SiReact, SiJavascript, SiTailwindcss, SiNodedotjs, SiExpress, SiRedux } from "react-icons/si";
 
-function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+const fadeUp = {
+  initial: { opacity: 0, y: 40 },
+  whileInView: { opacity: 1, y: 0 },
+  transition: { duration: 0.6 },
+};
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return ("scroll", handleScroll);
-  }, []);
+const Section = ({ title, children }) => (
+  <motion.section {...fadeUp} className="py-16 px-6 max-w-6xl mx-auto">
+    <h2 className="text-4xl font-bold mb-10 bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-purple-600">
+      {title}
+    </h2>
+    {children}
+  </motion.section>
+);
 
+const App = () => {
   return (
-    <nav
-      className={`fixed top-5 left-1/2 transform -translate-x-1/2 w-4/5 md:w-3/5 bg-gradient-to-r from-blue-500 to-indigo-700 text-white py-4 px-6 shadow-lg rounded-full transition-all duration-300 ease-in-out z-50 ${
-        isScrolled ? "shadow-2xl scale-95 opacity-90" : "shadow-md scale-100"
-      }`}
-    >
-      <div className="flex justify-between items-center">
-        <h1 className="text-2xl font-extrabold tracking-wide">Himanshu Singh</h1>
-        <button
-          className="md:hidden focus:outline-none"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {isOpen ? <FiX size={28} /> : <FiMenu size={28} />}
-        </button>
-        <ul className={`md:flex space-x-8 hidden ${isOpen ? "block" : "hidden"}`}>
-          {["Home", "About", "Projects", "Contact"].map((item) => (
-            <li
-              key={item}
-              className="hover:text-amber-400 transition duration-300 cursor-pointer"
-            >
-              {item}
-            </li>
-          ))}
-        </ul>
-      </div>
-    </nav>
-  );
-}
-
-function Section({ title, children, bgColor, textColor }) {
-  return (
-    <section className={`${bgColor} ${textColor} py-20 px-6 text-center`}>
-      <div className="max-w-4xl mx-auto animate-fadeInUp">
-        <h2 className="text-4xl font-bold mb-6">{title}</h2>
-        {children}
-      </div>
-    </section>
-  );
-}
-
-function Home() {
-  return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-900 text-center px-6 pt-20">
-      <div className="max-w-2xl bg-gray-800 p-10 rounded-2xl shadow-xl animate-fadeInUp">
-        <h1 className="text-6xl font-extrabold text-white mb-4">
-          Hey! I'm <span className="text-orange-500">Himanshu</span>
+    <div className="bg-gradient-to-br from-black via-gray-900 to-gray-950 text-white font-[Poppins]">
+      {/* HERO */}
+      <motion.section
+        className="h-screen flex flex-col justify-center items-center text-center px-6"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+      >
+        <h1 className="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 text-transparent bg-clip-text">
+          Himanshu Singh
         </h1>
-        <p className="text-xl text-gray-300">
-          A passionate <span className="text-orange-400 font-semibold">Full-Stack Developer</span>
+        <p className="text-gray-300 mt-4 text-lg md:text-xl">
+          Full Stack Developer | React | Node.js | MongoDB
         </p>
-      </div>
-    </div>
-  );
-}
+        <a
+          href="/himanshu_cv_sde.pdf"
+          download
+          className="mt-8 px-8 py-3 bg-white text-black rounded-full font-semibold hover:scale-105 transition-transform shadow-lg"
+        >
+          Download Resume
+        </a>
+      </motion.section>
 
-function About() {
-  return (
-    <Section title="About Me" bgColor="bg-indigo-100" textColor="text-gray-700">
-      <p className="text-lg leading-relaxed">
-        Hi, I'm Himanshu Singh, a detail-oriented full-stack developer specializing in React, Node.js, and MongoDB.
-        I build scalable, efficient, and visually appealing web applications.
-      </p>
-    </Section>
-  );
-}
+      {/* ABOUT */}
+      <Section title="About Me">
+        <motion.div className="bg-white/5 p-6 rounded-2xl backdrop-blur-md text-gray-300 shadow-xl">
+          I’m a passionate developer with hands-on experience building modern web apps using the MERN stack. I focus on user experience, performance, and delivering results that solve real business problems.
+        </motion.div>
+      </Section>
 
-function Projects() {
-  return (
-    <Section title="My Projects" bgColor="bg-gray-200" textColor="text-gray-800">
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {["E-commerce App", "Hotel Booking System", "AI Chatbot"].map((project, index) => (
-          <div
-            key={index}
-            className="bg-white p-6 rounded-lg shadow-md transform hover:scale-105 transition"
-          >
-            <h3 className="text-xl font-semibold">{project}</h3>
-            <p className="text-gray-600 mt-2">A brief description of {project}.</p>
+      {/* EXPERIENCE */}
+      <Section title="Experience">
+        <div className="space-y-8">
+          {[
+            {
+              title: "Junior Software Developer - DIGIPANTS",
+              date: "Sep 2024 – Present",
+              points: [
+                "Built hotel management system increasing booking efficiency by 40%",
+                "Optimized performance with lazy loading, CDNs, and image optimization",
+                "Used Express.js and MongoDB to handle 200+ transactions/day",
+              ],
+            },
+            {
+              title: "Developer Intern - Analyze InfoTech",
+              date: "Jul 2023 – Dec 2023",
+              points: [
+                "Created secure forms with MongoDB, JWT, bcrypt",
+                "Improved DB query performance & reliability",
+                "Enhanced UX with validations & error handling",
+              ],
+            },
+          ].map((exp, i) => (
+            <motion.div
+              key={i}
+              className="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-xl shadow-lg hover:scale-105 transition-transform"
+              {...fadeUp}
+            >
+              <h3 className="text-xl font-bold text-purple-400">{exp.title}</h3>
+              <p className="text-sm text-gray-400">{exp.date}</p>
+              <ul className="list-disc list-inside mt-3 space-y-1 text-gray-300">
+                {exp.points.map((pt, idx) => <li key={idx}>{pt}</li>)}
+              </ul>
+            </motion.div>
+          ))}
+        </div>
+      </Section>
+
+      {/* PROJECTS */}
+      <Section title="Projects">
+        <div className="grid md:grid-cols-2 gap-8">
+          {[
+            {
+              title: "E-commerce Application",
+              tech: ["React", "Node", "MongoDB", "Redux", "Stripe"],
+              desc: "Built a secure, scalable ecommerce app with MFA, Stripe payments, lazy loading, and code splitting.",
+              repo: "https://github.com/codeByHimanshu/EcommerceApplication",
+            },
+            {
+              title: "Book Store",
+              tech: ["React", "Express", "MongoDB", "JWT", "APIs"],
+              desc: "Created book catalog with user login, cart, orders, API integration for metadata/reviews.",
+              repo: "https://github.com/codeByHimanshu",
+            },
+          ].map((proj, i) => (
+            <motion.div
+              key={i}
+              className="bg-white/5 p-6 rounded-2xl shadow-md backdrop-blur-sm hover:scale-[1.03] transition-transform"
+              {...fadeUp}
+            >
+              <h4 className="text-xl font-semibold text-pink-400">{proj.title}</h4>
+              <p className="text-sm mt-2 text-gray-300">{proj.desc}</p>
+              <div className="flex flex-wrap gap-2 mt-4">
+                {proj.tech.map((tech, t) => (
+                  <span
+                    key={t}
+                    className="bg-purple-600/20 text-purple-300 px-3 py-1 rounded-full text-xs"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+              <a
+                href={proj.repo}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-4 inline-block text-sm text-blue-400 underline hover:text-blue-200"
+              >
+                View Repo
+              </a>
+            </motion.div>
+          ))}
+        </div>
+      </Section>
+
+      {/* SKILLS */}
+      <Section title="Tech Stack">
+        <div className="grid grid-cols-3 md:grid-cols-6 gap-6 text-center text-3xl text-gray-200">
+          {[SiReact, SiNodedotjs, SiExpress, SiMongodb, SiJavascript, SiTailwindcss, SiRedux].map((Icon, i) => (
+            <motion.div key={i} className="hover:scale-110 transition-transform" {...fadeUp}>
+              <Icon />
+            </motion.div>
+          ))}
+        </div>
+      </Section>
+
+      {/* EDUCATION */}
+      <Section title="Education">
+        <motion.div className="bg-white/5 p-6 rounded-2xl text-gray-300 backdrop-blur-lg shadow-xl">
+          <div className="flex items-center space-x-4">
+            <FaUniversity className="text-3xl text-blue-400" />
+            <div>
+              <h3 className="text-xl font-bold">Dr. A.P.J. Abdul Kalam Technical University</h3>
+              <p className="text-sm">B.Tech – Computer Science (2020–2024), CGPA: 7.8</p>
+            </div>
           </div>
-        ))}
-      </div>
-    </Section>
-  );
-}
+        </motion.div>
+      </Section>
 
-function Contact() {
-  return (
-    <Section title="Contact Me" bgColor="bg-white" textColor="text-gray-800">
-      <p className="text-lg text-gray-600 mb-6">Let's connect and collaborate!</p>
-      <form className="bg-gray-100 p-6 rounded-lg shadow-lg max-w-lg mx-auto">
-        <input
-          type="text"
-          placeholder="Your Name"
-          className="w-full p-3 mb-4 rounded-lg border border-gray-300"
-          required
-        />
-        <input
-          type="email"
-          placeholder="Your Email"
-          className="w-full p-3 mb-4 rounded-lg border border-gray-300"
-          required
-        />
-        <textarea
-          placeholder="Your Message"
-          className="w-full p-3 mb-4 rounded-lg border border-gray-300"
-          rows="5"
-          required
-        ></textarea>
-        <button className="bg-indigo-600 text-white py-2 px-6 rounded-lg hover:bg-indigo-700">
-          Send Message
-        </button>
-      </form>
-    </Section>
-  );
-}
-
-function App() {
-  return (
-    <div>
-      <Navbar />
-      <Home />
-      <About />
-      <Projects />
-      <Contact />
+      {/* CONTACT */}
+      <Section title="Let's Connect">
+        <div className="flex justify-center space-x-6 text-3xl">
+          <a href="mailto:hsaktu261@gmail.com" className="text-red-400 hover:scale-125 transition-transform">
+            <FaEnvelope />
+          </a>
+          <a href="https://github.com/codeByHimanshu" target="_blank" className="hover:scale-125 transition-transform">
+            <FaGithub />
+          </a>
+          <a href="https://www.linkedin.com/in/himanshusingh261/" target="_blank" className="text-blue-500 hover:scale-125 transition-transform">
+            <FaLinkedin />
+          </a>
+        </div>
+      </Section>
     </div>
   );
-}
+};
 
 export default App;
