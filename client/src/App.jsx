@@ -1,6 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaEnvelope,
+} from "react-icons/fa";
 import {
   SiReact,
   SiNodedotjs,
@@ -11,219 +15,265 @@ import {
   SiRedux,
 } from "react-icons/si";
 
-const fadeUp = {
-  initial: { opacity: 0, y: 40 },
-  whileInView: { opacity: 1, y: 0 },
-  transition: { duration: 0.7 },
-};
 
-const App = () => {
-  const Section = ({ title, children }) => (
-    <motion.section className="py-20 px-6 max-w-6xl mx-auto" {...fadeUp}>
-      <h2 className="text-4xl font-bold mb-10 text-center bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500">
+const BlobBackground = () => (
+  <svg
+    className="absolute top-0 left-1/2 transform -translate-x-1/2 -z-10 w-[120%]"
+    viewBox="0 0 600 600"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g transform="translate(300,300)">
+      <motion.path
+        animate={{
+          d: [
+            "M120,-180C160,-140,200,-90,220,-30C240,30,240,90,200,140C160,190,80,240,0,250C-80,260,-160,230,-200,180C-240,130,-240,65,-220,10C-200,-45,-160,-85,-120,-120C-80,-155,-40,-185,0,-190C40,-195,80,-175,120,-180Z",
+            "M150,-180C200,-140,240,-90,250,-30C260,30,230,90,180,140C130,190,65,240,0,250C-65,260,-130,230,-180,180C-230,130,-260,65,-250,10C-240,-45,-200,-85,-150,-120C-100,-155,-50,-185,0,-190C50,-195,100,-175,150,-180Z",
+            "M140,-160C180,-120,220,-70,220,-10C220,50,180,110,140,160C100,210,50,240,0,250C-50,260,-100,240,-140,190C-180,140,-200,70,-180,20C-160,-30,-120,-80,-80,-120C-40,-160,0,-180,40,-190C80,-200,120,-180,140,-160Z",
+          ],
+        }}
+        transition={{
+          duration: 15,
+          ease: "easeInOut",
+          repeat: Infinity,
+          repeatType: "reverse",
+        }}
+        fill="url(#grad1)"
+      />
+      <defs>
+        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#a78bfa" />
+          <stop offset="100%" stopColor="#f472b6" />
+        </linearGradient>
+      </defs>
+    </g>
+  </svg>
+);
+
+
+const MotionCard = ({ className = "", children }) => (
+  <motion.div
+    className={`bg-white/10 backdrop-blur-md p-6 rounded-3xl border border-white/20 shadow-lg ${className}`}
+    whileHover={{ scale: 1.02, y: -4 }}
+    transition={{ duration: 0.3 }}
+  >
+    {children}
+  </motion.div>
+);
+
+
+const Section = ({ title, children }) => (
+  <div className="mb-20">
+    <h2 className="text-4xl font-bold text-center mb-10 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500">
+      {title}
+    </h2>
+    <MotionCard className="max-w-5xl mx-auto">{children}</MotionCard>
+  </div>
+);
+
+
+const SplitSection = ({ title, children }) => (
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-20">
+    <MotionCard className="space-y-4">
+      <h2 className="text-4xl font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent">
         {title}
       </h2>
-      <div className="bg-white/5 backdrop-blur-md p-6 rounded-2xl shadow-lg border border-white/10 text-gray-300">
-        {children}
-      </div>
-    </motion.section>
-  );
+      {children}
+    </MotionCard>
+  </div>
+);
+
+const App = () => {
+  const techIcons = [
+    { icon: SiReact, color: "#61DBFB" },
+    { icon: SiNodedotjs, color: "#3C873A" },
+    { icon: SiExpress, color: "#ffffff" },
+    { icon: SiMongodb, color: "#47A248" },
+    { icon: SiJavascript, color: "#F0DB4F" },
+    { icon: SiTailwindcss, color: "#38BDF8" },
+    { icon: SiRedux, color: "#764ABC" },
+  ];
 
   return (
-    <div className="bg-gradient-to-br from-black via-gray-900 to-gray-950 text-white font-[Poppins]">
-      <motion.section
-        className="h-screen flex flex-col justify-center items-center text-center px-6"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-      >
-        <h1 className="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 text-transparent bg-clip-text animate-pulse">
+    <div className="relative min-h-screen text-white font-sans bg-gradient-to-br from-black via-gray-900 to-gray-950 overflow-hidden">
+    
+      <BlobBackground />
+      <div className="relative z-10 h-screen flex flex-col justify-center items-center text-center px-6">
+        <motion.h1
+          className="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent"
+          initial={{ y: -20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 1.2 }}
+        >
           Himanshu Singh
-        </h1>
-        <p className="text-gray-300 mt-4 text-lg md:text-xl">
+        </motion.h1>
+        <motion.p
+          className="mt-4 text-gray-300 text-lg md:text-xl"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5 }}
+        >
           Full Stack Developer • React • Node • MongoDB
-        </p>
-        <a
+        </motion.p>
+        <motion.a
           href="/himanshu_cv_sde.pdf"
           download
-          className="mt-8 px-8 py-3 bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-full font-semibold hover:scale-105 transition-transform shadow-lg"
+          className="mt-8 px-8 py-3 bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-full font-semibold shadow-lg"
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.3 }}
         >
           Download Resume
-        </a>
-      </motion.section>
+        </motion.a>
+      </div>
 
-      <Section title="About Me">
-        I'm a full-stack developer passionate about building clean, fast, and
-        scalable applications using the MERN stack. I thrive on solving
-        real-world problems with elegant code and sleek UI.
-      </Section>
+  
+      <div className="relative z-10 px-6 max-w-7xl mx-auto pb-20">
 
-      <Section title="Experience">
-        <div className="space-y-6">
-          <div className="hover:scale-[1.02] transition-transform">
-            <h3 className="text-xl text-purple-300 font-bold">
-              DIGIPANTS – Junior Developer
-            </h3>
-            <p className="text-sm text-gray-400">Sep 2024 – Present</p>
-            <ul className="list-disc ml-5 mt-2 space-y-1">
-              <li>
-                Spearheaded the development of a hotel management website,
-                boosting booking efficiency by 40% through streamlined frontend
-                and backend optimizations.
-              </li>
-              <li>
-                Crafted responsive user interfaces with React, resulting in a
-                10% increase in user engagement.
-              </li>
-              <li>
-                Implemented robust backend systems with Express.js and MongoDB,
-                efficiently handling data for over 200+ transactions daily.
-              </li>
-              <li>
-                Minimized website load time by optimizing images, leveraging
-                lazy loading, and integrating CDNs, leading to enhanced
-                performance and a smoother user experience.
-              </li>
-              <li>
-                Utilized code optimization techniques such as minifying
-                JavaScript, CSS, and HTML to decrease page load times and
-                improve overall application speed.
-              </li>
-            </ul>
+        <SplitSection title="About Me">
+          <p className="text-gray-300">
+            I'm a MERN full-stack developer with a flair for creating elegant,
+            high-performance web apps. I build scalable, sleek solutions that
+            solve real problems.
+          </p>
+        </SplitSection>
+
+     
+        <SplitSection title="Experience">
+          <div className="space-y-6">
+            <MotionCard>
+              <h3 className="text-purple-300 font-bold text-xl">
+                DIGIPANTS – Junior Developer
+              </h3>
+              <p className="text-gray-400">Sep 2024 – Present</p>
+              <ul className="list-disc ml-5 mt-2 space-y-1">
+                <li>Boosted booking efficiency by 40% in hotel platform.</li>
+                <li>Improved user engagement with dynamic React UI.</li>
+                <li>Handled 200+ daily transactions with MongoDB.</li>
+                <li>Implemented lazy loading & CDN optimizations.</li>
+              </ul>
+            </MotionCard>
+            <MotionCard>
+              <h3 className="text-purple-300 font-bold text-xl">
+                Analyze InfoTech – Intern
+              </h3>
+              <p className="text-gray-400">Jul 2023 – Dec 2023</p>
+              <ul className="list-disc ml-5 mt-2 space-y-1">
+                <li>Built dynamic e-commerce forms with MongoDB.</li>
+                <li>Created secure API endpoints and optimized schemas.</li>
+                <li>Added JWT + bcrypt auth for enhanced security.</li>
+              </ul>
+            </MotionCard>
           </div>
-          <div className="hover:scale-[1.02] transition-transform">
-            <h3 className="text-xl text-purple-300 font-bold">
-              Analyze InfoTech – Intern
-            </h3>
-            <p className="text-sm text-gray-400">Jul 2023 – Dec 2023</p>
-            <ul className="list-disc ml-5 mt-2 space-y-1">
-              <li>
-                Engineered robust solutions for capturing comprehensive product
-                details in a e-commerce form, ensuring accurate storage and
-                retrieval in MongoDB
-              </li>
-              <li>
-                Created efficient data models, optimized database queries, and
-                integrated seamless API endpoints to enhance performance and
-                reliability
-              </li>
-              <li>
-                Integrated advanced error handling and user authentication
-                mechanisms using JWT and bcrypt, enhancing security and user
-                experience within the application.
-              </li>
-            </ul>
-          </div>
-        </div>
-      </Section>
+        </SplitSection>
 
-      <Section title="Projects">
-        <div className="grid md:grid-cols-2 gap-6">
-          {[
-            {
-              title: "E-commerce App",
-              desc: "MFA login, lazy loading, Stripe API integration, and Redux-powered state.",
-              tech: ["React", "Node", "Redux", "Stripe", "MongoDB"],
-              link: "https://github.com/codeByHimanshu/EcommerceApplication",
-            },
-            {
-              title: "Learning Management System",
-              desc: (
-                <>
-                  ◦ Developed a full-stack Learning Management System with React, Node.js, Express, and MongoDB backend.<br />
-                  ◦ Enabled mentors to create courses and lectures using protected, token-based API endpoints.<br />
-                  ◦ Integrated lecture management with title, video URL, duration, and free preview toggles.<br />
-                  ◦ Implemented real-time updates for course ratings, enrollment count, and lecture tracking system.
-                </>
-              ),
-              tech: ["React", "Express", "MongoDB", "JWT"],
-              link: "porfolio-himanshu.netlify.app",
-            },
-          ].map((proj, i) => (
-            <motion.div
-              key={i}
-              whileHover={{ scale: 1.03 }}
-              className="bg-white/5 backdrop-blur-sm p-5 rounded-xl shadow-md transition-transform"
-            >
-              <h4 className="text-pink-400 font-semibold text-lg">
-                {proj.title}
-              </h4>
-              <p className="text-sm mt-2 text-gray-300">{proj.desc}</p>
-              <div className="flex flex-wrap gap-2 mt-4">
-                {proj.tech.map((tech, j) => (
-                  <span
-                    key={j}
-                    className="bg-purple-700/30 px-3 py-1 rounded-full text-xs text-purple-200"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-              <a 
-                href={proj.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block mt-4 text-blue-400 underline text-sm"
+      
+        <Section title="Projects">
+          <div className="grid lg:grid-cols-2 gap-8">
+            {[
+              {
+                title: "E‑commerce App",
+                desc:
+                  "MFA login, lazy loading, Stripe integration, Redux state.",
+                link:
+                  "https://github.com/codeByHimanshu/EcommerceApplication",
+              },
+              {
+                title: "Learning Management System",
+                desc:
+                  "Full-stack LMS with React, Node, Express, JWT, real-time progress.",
+                link: "porfolio-himanshu.netlify.app",
+              },
+            ].map((proj, i) => (
+              <MotionCard key={i}>
+                <h4 className="text-pink-400 font-semibold text-lg">
+                  {proj.title}
+                </h4>
+                <p className="text-sm mt-2 text-gray-300">{proj.desc}</p>
+                <a
+                  href={proj.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-block text-blue-400 underline"
+                >
+                  View Live ⬈
+                </a>
+              </MotionCard>
+            ))}
+          </div>
+        </Section>
+
+        <Section title="Tech Stack">
+          <motion.div
+            className="flex gap-6 overflow-x-auto py-4 px-2"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            {techIcons.map(({ icon: Icon, color }, i) => (
+              <motion.div
+                key={i}
+                className="flex-shrink-0 p-4 bg-white/10 backdrop-blur-md rounded-2xl shadow-lg"
+                whileHover={{ scale: 1.2, rotate: 5 }}
+                transition={{ type: "spring", stiffness: 300 }}
               >
-                Live Demo
+                <Icon color={color} className="text-5xl" />
+              </motion.div>
+            ))}
+          </motion.div>
+        </Section>
+
+
+        <Section title="Get in Touch">
+          <div className="bg-gradient-to-r from-purple-800 to-pink-800 p-10 rounded-3xl shadow-xl">
+            <form className="space-y-6 max-w-xl mx-auto text-white">
+              <motion.input
+                whileFocus={{ scale: 1.03 }}
+                type="text"
+                placeholder="Your Name"
+                className="w-full p-4 rounded-xl bg-white/10 border border-white/20 focus:outline-none"
+              />
+              <motion.input
+                whileFocus={{ scale: 1.03 }}
+                type="email"
+                placeholder="Your Email"
+                className="w-full p-4 rounded-xl bg-white/10 border border-white/20 focus:outline-none"
+              />
+              <motion.textarea
+                whileFocus={{ scale: 1.03 }}
+                rows="5"
+                placeholder="Your Message"
+                className="w-full p-4 rounded-xl bg-white/10 border border-white/20 focus:outline-none"
+              />
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                type="submit"
+                className="w-full py-3 bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 text-white font-semibold rounded-full shadow-lg"
+              >
+                🚀 Send Message
+              </motion.button>
+            </form>
+            <div className="flex justify-center space-x-6 mt-8 text-3xl opacity-80">
+              <a href="mailto:hsaktu261@gmail.com" className="hover:text-red-400">
+                <FaEnvelope />
               </a>
-            </motion.div>
-          ))}
-        </div>
-      </Section>
-
-      <Section title="Tech Stack">
-        <div className="grid grid-cols-3 md:grid-cols-6 gap-6 text-4xl text-white justify-center text-center">
-          {[
-            SiReact,
-            SiNodedotjs,
-            SiExpress,
-            SiMongodb,
-            SiJavascript,
-            SiTailwindcss,
-            SiRedux,
-          ].map((Icon, i) => (
-            <motion.div
-              key={i}
-              className="hover:scale-125 transition-transform"
-            >
-              {<Icon />}
-            </motion.div>
-          ))}
-        </div>
-      </Section>
-
-      <Section title="Education">
-        <h3 className="text-lg text-purple-300 font-semibold">
-          Dr. A.P.J. Abdul Kalam Technical University
-        </h3>
-        <p className="text-sm">
-          B.Tech – Computer Science, CGPA: 7.8 (2020–2024)
-        </p>
-      </Section>
-
-      {/* CONTACT */}
-      <Section title="Get in Touch">
-        <div className="flex justify-center space-x-6 text-3xl text-white">
-          <a href="mailto:hsaktu261@gmail.com" className="hover:text-red-400">
-            <FaEnvelope />
-          </a>
-          <a
-            href="https://github.com/codeByHimanshu"
-            target="_blank"
-            className="hover:text-gray-300"
-          >
-            <FaGithub />
-          </a>
-          <a
-            href="https://linkedin.com/in/himanshusingh261/"
-            target="_blank"
-            className="hover:text-blue-400"
-          >
-            <FaLinkedin />
-          </a>
-        </div>
-      </Section>
+              <a
+                href="https://github.com/codeByHimanshu"
+                target="_blank"
+                className="hover:text-gray-300"
+              >
+                <FaGithub />
+              </a>
+              <a
+                href="https://linkedin.com/in/himanshusingh261/"
+                target="_blank"
+                className="hover:text-blue-400"
+              >
+                <FaLinkedin />
+              </a>
+            </div>
+          </div>
+        </Section>
+      </div>
     </div>
   );
 };
