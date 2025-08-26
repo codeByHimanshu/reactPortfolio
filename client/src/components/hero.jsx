@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function HeroClean() {
+export default function Hero() {
   return (
     <section
       id="home"
