@@ -1,3 +1,4 @@
+import Contributions from "./components/contributions";
 import Experience from "./components/experience";
 import Footer from "./components/footer";
 import Header from "./components/header";
@@ -24,6 +25,9 @@ const App = () => {
       <Reveal>
 
         <Projects />
+      </Reveal>
+      <Reveal>
+        <Contributions />
       </Reveal>
       <Footer />
     </>
