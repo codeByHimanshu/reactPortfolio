@@ -3,23 +3,23 @@ import React from "react";
 export default function Experience() {
   const experiences = [
     {
-      role: "Frontend Developer",
-      company: "Tech Solutions Inc.",
+      role: "Freelance Web Developer",
+      company: "client-based",
       period: "2023 – Present",
       description:
         "Building responsive web applications with React and Tailwind CSS. Focused on clean UI and accessibility.",
     },
     {
       role: "MERN Stack Developer",
-      company: "Freelance",
-      period: "2022 – 2023",
+      company: "Digipants etwork Pvt. Ltd.",
+      period: "1Yrs + ",
       description:
         "Developed full-stack projects with MongoDB, Express, React, and Node.js. Implemented REST APIs and authentication.",
     },
     {
       role: "Intern Web Developer",
-      company: "Startup Hub",
-      period: "2021 – 2022",
+      company: "Analyze Infotech",
+      period: "6 Months",
       description:
         "Worked on improving UI/UX for client projects, fixing bugs, and collaborating with designers to ship features quickly.",
     },

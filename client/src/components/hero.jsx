@@ -12,7 +12,7 @@ export default function Hero() {
           <div>
             <h1 className="text-4xl font-extrabold sm:text-5xl lg:text-6xl tracking-tight">
               Crafting Modern &{" "}
-              <span className="bg-gradient-to-r from-indigo-600 via-fuchsia-600 to-cyan-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-gray-500 via-fuchsia-100 to-blue-500 bg-clip-text text-transparent">
                 Clean UIs
               </span>
             </h1>
@@ -37,9 +37,7 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="relative flex justify-center lg:justify-end">
-            <div className="h-64 w-64 sm:h-80 sm:w-80 lg:h-[400px] lg:w-[400px] rounded-full bg-gradient-to-tr from-indigo-500 via-fuchsia-500 to-cyan-400 opacity-90" />
-          </div>
+         
         </div>
       </div>
     </section>

@@ -1,4 +1,4 @@
-import About from "./components/about";
+
 import Experience from "./components/experience";
 import Footer from "./components/footer";
 import Header from "./components/header";
@@ -18,7 +18,6 @@ const App = () => {
   <Experience />
   <Skills />
   <Projects />
-  <About />
   <Footer />
   </>
   );
