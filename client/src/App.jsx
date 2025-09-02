@@ -1,25 +1,32 @@
-
 import Experience from "./components/experience";
 import Footer from "./components/footer";
 import Header from "./components/header";
 import Hero from "./components/hero";
 import Projects from "./components/projects";
+import Reveal from "./components/reaveal";
 import Skills from "./components/skills";
 
-
 const App = () => {
-
-
   return (
-  <>
+    <>
+      <Header />
+      <Reveal>
+        <Hero />
+      </Reveal>
+      <Reveal>
 
-  <Header />
-  <Hero />
-  <Experience />
-  <Skills />
-  <Projects />
-  <Footer />
-  </>
+        <Experience />
+      </Reveal>
+      <Reveal>
+
+        <Skills />
+      </Reveal>
+      <Reveal>
+
+        <Projects />
+      </Reveal>
+      <Footer />
+    </>
   );
 };
 

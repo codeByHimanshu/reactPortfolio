@@ -3,13 +3,6 @@ import React from "react";
 export default function Experience() {
   const experiences = [
     {
-      role: "Freelance Web Developer",
-      company: "client-based",
-      period: "2023 – Present",
-      description:
-        "Building responsive web applications with React and Tailwind CSS. Focused on clean UI and accessibility.",
-    },
-    {
       role: "MERN Stack Developer",
       company: "Digipants etwork Pvt. Ltd.",
       period: "1Yrs + ",
@@ -22,6 +15,13 @@ export default function Experience() {
       period: "6 Months",
       description:
         "Worked on improving UI/UX for client projects, fixing bugs, and collaborating with designers to ship features quickly.",
+    },
+    {
+      role: "Freelance Web Developer",
+      company: "client-based",
+      period: "2023 – Present",
+      description:
+        "Building responsive web applications with React and Tailwind CSS. Focused on clean UI and accessibility.",
     },
   ];
 

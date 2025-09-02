@@ -7,15 +7,15 @@ export default function Projects() {
       description:
         "A modern online shopping platform with product listings, cart, checkout, and secure payment integration.",
       image:
-        "https://source.unsplash.com/600x400/?ecommerce,shopping,website",
-      link: "#",
+        "/ec.png",
+      link: "",
     },
     {
       title: "Learning Management System",
       description:
         "An LMS built for online education with course management, quizzes, and student progress tracking.",
-      image: "https://source.unsplash.com/600x400/?elearning,education,app",
-      link: "#",
+      image: "/lms.png",
+      link: "https://pearl-ed.netlify.app/",
     },
     {
       title: "Vehicle Renting System",
@@ -32,7 +32,7 @@ export default function Projects() {
       className="relative bg-white text-gray-900 py-20 sm:py-28"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Heading */}
+     
         <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-center">
           Projects
         </h2>
@@ -48,7 +48,7 @@ export default function Projects() {
               key={index}
               className="group relative bg-white border border-gray-200 rounded-2xl shadow-sm overflow-hidden hover:shadow-xl transition duration-300"
             >
-              {/* Image */}
+           
               <div className="h-48 w-full overflow-hidden">
                 <img
                   src={project.image}
@@ -57,7 +57,7 @@ export default function Projects() {
                 />
               </div>
 
-              {/* Content */}
+           
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-gray-800">
                   {project.title}

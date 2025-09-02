@@ -50,9 +50,9 @@ export default function Header() {
             href="#home"
             className="group inline-flex items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-xl"
           >
-            <div className="h-8 w-8 rounded-xl bg-gradient-to-tr from-indigo-500 via-fuchsia-500 to-cyan-400 shadow-inner" />
-            <span className="text-lg font-semibold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-black/80 via-black/80 to-black/80">
-              Himanshu<span className="opacity-50">.dev</span>
+            {/* <div className="h-8 w-8 rounded-xl bg-gradient-to-tr from-indigo-500 via-fuchsia-500 to-cyan-400 shadow-inner" /> */}
+            <span className="text-2xl font-semibold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-fuchsia-600 to-cyan-500">
+              Himanshu<span className="opacity-50 text-black">.dev</span>
             </span>
           </a>
 
