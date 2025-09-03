@@ -4,7 +4,7 @@ export default function Contributions() {
   const contributions = [
     "https://quicksquad.live/",
     "https://avyamhealthcare.com/",
-    "",
+    "https://pearlytots.com/",
   ];
 
   return (
@@ -26,16 +26,18 @@ export default function Contributions() {
               rel="noopener noreferrer"
               className="group relative block bg-white border border-gray-200 rounded-2xl shadow-sm overflow-hidden hover:shadow-xl transition duration-300"
             >
-              {/* Preview */}
-              <div className="h-80 w-full overflow-hidden pointer-events-none">
+              {/* Preview Frame */}
+              <div className="w-full overflow-hidden pointer-events-none">
                 <iframe
                   src={url}
                   title={`preview-${index}`}
-                  className="h-full w-full border-0 scale-110 transform origin-top pointer-events-none"
+                  scrolling="no"
+                  style={{ overflow: "hidden" }}
+                  className="w-full h-[700px] border-0 pointer-events-none"
                 />
               </div>
 
-         
+          
               <div className="p-4">
                 <p className="block text-indigo-600 font-medium group-hover:text-indigo-800 transition">
                   {url.replace(/^https?:\/\//, "").replace(/\/$/, "")} →

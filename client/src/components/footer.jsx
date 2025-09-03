@@ -7,10 +7,10 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between">
         {/* Branding */}
         <p className="text-gray-600 text-sm mb-4 md:mb-0">
-          © {new Date().getFullYear()} Your Name. All rights reserved.
+          © {new Date().getFullYear()} Himanshu. All rights reserved.
         </p>
 
-        {/* Social Links */}
+      
         <div className="flex space-x-6 text-2xl">
           <a
             href="https://www.linkedin.com/"

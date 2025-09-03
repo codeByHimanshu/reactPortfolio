@@ -6,7 +6,7 @@ import {
   FaCss3Alt,
   FaJsSquare,
 } from "react-icons/fa";
-import { SiMongodb, SiTailwindcss, SiRedux } from "react-icons/si";
+import { SiMongodb, SiTailwindcss, SiRedux,SiShopify } from "react-icons/si";
 
 const skills = [
   { name: "React", icon: <FaReact className="text-sky-500" /> },
@@ -18,6 +18,7 @@ const skills = [
   { name: "Redux", icon: <SiRedux className="text-purple-600" /> },
   { name: "TailwindCSS", icon: <SiTailwindcss className="text-cyan-500" /> },
   { name: "Git", icon: <FaGitAlt className="text-red-600" /> },
+   { name: "Shopify", icon: <SiShopify className="text-green-500" /> }
 ];
 
 export default function Skills() {

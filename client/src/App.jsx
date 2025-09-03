@@ -1,3 +1,4 @@
+import ContactForm from "./components/contact";
 import Contributions from "./components/contributions";
 import Experience from "./components/experience";
 import Footer from "./components/footer";
@@ -28,6 +29,9 @@ const App = () => {
       </Reveal>
       <Reveal>
         <Contributions />
+      </Reveal>
+      <Reveal>
+      <ContactForm />
       </Reveal>
       <Footer />
     </>
