@@ -10,7 +10,7 @@ export default function Contributions() {
   return (
     <section
       id="contributions"
-      className="relative bg-gray-50 text-gray-900 py-20 sm:py-28"
+      className="relative bg-white text-gray-900 py-20 sm:py-28"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <p className="mt-4 text-lg text-gray-600 text-center max-w-2xl mx-auto">

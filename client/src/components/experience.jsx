@@ -34,7 +34,7 @@ export default function Experience() {
       
         <div className="mt-12 relative border-l border-gray-300">
           {experiences.map((exp, index) => (
-            <div key={index} className="mb-12 ml-6 relative">
+            <div key={index} className="mb-12 ml-6 relative animate__animated animate__bounceIn">
               <span className="absolute -left-3 top-2 h-6 w-6 rounded-full bg-gradient-to-r from-indigo-600 via-fuchsia-600 to-cyan-500 shadow"></span>
 
               <div className="bg-white border border-gray-200 rounded-xl shadow-sm p-6 hover:shadow-md transition">
