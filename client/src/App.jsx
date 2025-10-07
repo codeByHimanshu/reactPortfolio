@@ -19,7 +19,7 @@ export default function App() {
         <Reveal direction="up" delay={0.4}><Skills /></Reveal>
         <Reveal direction="up" delay={0.6}><Contributions /></Reveal>
         <Reveal direction="up" delay={0.8}><Projects /></Reveal>
-        <Reveal direction="up" delay={1}><ContactForm /></Reveal>
+        {/* <Reveal direction="up" delay={1}><ContactForm /></Reveal> */}
       </main>
       <Footer />
     </div>
