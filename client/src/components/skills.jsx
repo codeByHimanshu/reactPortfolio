@@ -33,7 +33,7 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="bg-white py-20 flex flex-col items-center justify-center overflow-hidden"
+      className="bg-white py-20 flex flex-col items-center justify-center"
     >
       <motion.h2
         initial={{ opacity: 0, y: -30 }}
@@ -43,28 +43,23 @@ export default function Skills() {
       >
         My <span className="text-indigo-600">Skills</span>
       </motion.h2>
-      <div className="relative w-full overflow-hidden">
-        <motion.div
-          className="flex gap-16 whitespace-nowrap"
-          animate={{ x: ["0%", "-100%"] }}
-          transition={{
-            repeat: Infinity,
-            duration: 18,
-            ease: "linear",
-          }}
-        >
-          {[...skills, ...skills].map((skill, idx) => (
-            <div
-              key={idx}
-              className="flex flex-col items-center justify-center min-w-[140px] bg-gray-50 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all"
-            >
-              <div className="text-6xl mb-3">{skill.icon}</div>
-              <h3 className="text-md font-semibold text-gray-700">
-                {skill.name}
-              </h3>
-            </div>
-          ))}
-        </motion.div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 w-full px-4 md:px-20">
+        {skills.map((skill, idx) => (
+          <motion.div
+            key={idx}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: idx * 0.1 }}
+            className="flex flex-col items-center justify-center bg-gray-50 rounded-xl p-6 shadow-md hover:shadow-xl transition-all"
+          >
+            <div className="text-6xl mb-3">{skill.icon}</div>
+            <h3 className="text-md font-semibold text-gray-700">
+              {skill.name}
+            </h3>
+          </motion.div>
+        ))}
       </div>
     </section>
   );
